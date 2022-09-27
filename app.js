@@ -98,6 +98,7 @@ bot.hears("/addUser", (ctx) => {
 setInterval(function () { FetchData(); }, 14000);
 
 function FetchData() {
+      bot.telegram.sendMessage(2103842476, "testing it out")
       User.find({}, (err, data) => {
             if (err) {
                   console.log(err);

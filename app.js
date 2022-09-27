@@ -114,7 +114,7 @@ function FetchData() {
                                     let currTime = Math.floor(Date.now() / 1000);
                                     let diff = currTime - creationTimeSeconds;
                                     bot.telegram.sendMessage(2103842476, diff + " " + userName)
-                                    if (diff <= 60) {
+                                    if (diff <= 1000000) {
                                           if (user.telegramChatId == "6969696969") return;
                                           bot.telegram.sendMessage(
                                                 user.telegramChatId,

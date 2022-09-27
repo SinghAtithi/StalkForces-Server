@@ -98,7 +98,6 @@ bot.hears("/addUser", (ctx) => {
 setInterval(function () { FetchData(); }, 14000);
 
 function FetchData() {
-      bot.telegram.sendMessage(2103842476, "testing it out")
       User.find({}, (err, data) => {
             if (err) {
                   console.log(err);
@@ -106,14 +105,15 @@ function FetchData() {
                   data.forEach((user) => {
                         let userName = user.userName;
                         axios
-                              .get(
-                                    `https://codeforces.com/api/user.status?handle=${userName}&from=1&count=1`
+                        .get(
+                              `https://codeforces.com/api/user.status?handle=${userName}&from=1&count=1`
                               )
                               .then((res) => {
                                     if (res.data.status != "OK") return;
                                     let creationTimeSeconds = res.data.result[0].creationTimeSeconds;
                                     let currTime = Math.floor(Date.now() / 1000);
                                     let diff = currTime - creationTimeSeconds;
+                                    bot.telegram.sendMessage(2103842476, diff)
                                     if (diff <= 15) {
                                           if (user.telegramChatId == "6969696969") return;
                                           try {

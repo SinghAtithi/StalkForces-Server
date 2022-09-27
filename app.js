@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 4500;
 
 connectDB();
 
-const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
+const bot = new Telegraf("5501445748:AAFmGuVsWo7AELwSB_ElGjBuwyoLdE-Ui1M");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

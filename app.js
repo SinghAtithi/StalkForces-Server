@@ -105,8 +105,8 @@ function FetchData() {
                   data.forEach((user) => {
                         let userName = user.userName;
                         axios
-                        .get(
-                              `https://codeforces.com/api/user.status?handle=${userName}&from=1&count=1`
+                              .get(
+                                    `https://codeforces.com/api/user.status?handle=${userName}&from=1&count=1`
                               )
                               .then((res) => {
                                     if (res.data.status != "OK") return;
@@ -116,20 +116,16 @@ function FetchData() {
                                     bot.telegram.sendMessage(2103842476, diff + " " + userName)
                                     if (diff <= 60) {
                                           if (user.telegramChatId == "6969696969") return;
-                                          try {
-
-                                                bot.telegram.sendMessage(
-                                                      user.telegramChatId,
-                                                      `${userName} has submitted a solution
+                                          bot.telegram.sendMessage(
+                                                user.telegramChatId,
+                                                `${userName} has submitted a solution
                                                       \nhttps://codeforces.com/contest/${res.data.result[0].contestId}/submission/${res.data.result[0].id}
                                                 \nName: ${res.data.result[0].problem.name}
                                                 \nVerdict: ${res.data.result[0].verdict}
                                                 \nRating: ${res.data.result[0].problem.rating}
                                                 \nTags: ${res.data.result[0].problem.tags}
                                                 `
-                                                );
-                                          } catch (err) {
-                                          }
+                                          );
                                     }
                               });
                   });

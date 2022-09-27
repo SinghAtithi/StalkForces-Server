@@ -95,9 +95,11 @@ bot.hears("/addUser", (ctx) => {
       });
 })
 
-setInterval(function () { FetchData(); }, 65000);
+setInterval(function () { FetchData(); }, 1000);
 
 function FetchData() {
+      bot.telegram.sendMessage("Hello there!")
+      return;
       User.find({}, (err, data) => {
             if (err) {
                   console.log(err);
@@ -113,7 +115,7 @@ function FetchData() {
                                     let creationTimeSeconds = res.data.result[0].creationTimeSeconds;
                                     let currTime = Math.floor(Date.now() / 1000);
                                     let diff = currTime - creationTimeSeconds;
-                                    bot.telegram.sendMessage(2103842476, diff + " " + userName)
+
                                     if (diff <= 1000000) {
                                           if (user.telegramChatId == "6969696969") return;
                                           bot.telegram.sendMessage(

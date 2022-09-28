@@ -22,6 +22,22 @@ const schema = new Schema({
             required: true,
             default: 6969696969,
       },
+      profilePic: {
+            type: String,
+            required: true,
+      },
+      maxRating: {
+            type: Number,
+            required: true,
+      },
+      currRating: {
+            type: Number,
+            required: true,
+      },
+      maxRank: {
+            type: String,
+            required: true,
+      },
 });
 
 const User = mongoose.model("User", schema);

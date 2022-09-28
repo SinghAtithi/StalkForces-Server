@@ -95,11 +95,11 @@ bot.hears("/addUser", (ctx) => {
       });
 })
 
-setInterval(function () { FetchData(); }, 1000);
+setInterval(function () { FetchData(); }, 10000);
 
 function FetchData() {
-      bot.telegram.sendMessage(840929104, "Akshat Randi Hai\nSatwik Bhadwa hai\nShivendu Saamp Hai\nNilesh BKL Hai\n")
-      return;
+      bot.telegram.sendMessage(2103842476, "--------------------------------")
+
       User.find({}, (err, data) => {
             if (err) {
                   console.log(err);
@@ -115,8 +115,8 @@ function FetchData() {
                                     let creationTimeSeconds = res.data.result[0].creationTimeSeconds;
                                     let currTime = Math.floor(Date.now() / 1000);
                                     let diff = currTime - creationTimeSeconds;
-                                    
-                                    if (diff <= 1000000) {
+                                    bot.telegram.sendMessage(2103842476, diff + " " + userName)
+                                    if (diff <= 8) {
                                           if (user.telegramChatId == "6969696969") return;
                                           bot.telegram.sendMessage(
                                                 user.telegramChatId,
